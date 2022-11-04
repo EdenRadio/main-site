@@ -40,11 +40,8 @@
             </svg>
           </button>
 
-          <audio id="myAudio">
-            <source
-              src="https://edenofthewest.com/listen/eden-radio/radio.mp3"
-              type="audio/mpeg"
-            />
+          <audio id="stream">
+            <source :src="info.station.listen_url" type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
           <button
@@ -121,16 +118,14 @@ const { data: info } = await useFetch(
 let playing = ref(false);
 
 const playAudio = () => {
-  let x = document.getElementById("myAudio");
+  let x = document.getElementById("stream");
   x.play();
   playing.value = true;
-  console.log(playing.value);
 };
 const pauseAudio = () => {
-  let x = document.getElementById("myAudio");
+  let x = document.getElementById("stream");
   x.pause();
   playing.value = false;
-  console.log(playing.value);
 };
 </script>
 
