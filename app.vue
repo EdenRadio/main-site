@@ -108,13 +108,19 @@
   </div>
 </template>
 <script setup>
-const { data: info } = await useFetch(
+const { data: info, refresh } = await useFetch(
   "https://edenofthewest.com/api/nowplaying/1",
   {
     pick: ["station", "now_playing"],
   }
 );
 
+let np = info.value.now_playing;
+let st = info.value.station;
+
+// console.log(np);
+
+//ANCHOR Playing the audio
 let playing = ref(false);
 
 const playAudio = () => {
@@ -127,6 +133,23 @@ const pauseAudio = () => {
   x.pause();
   playing.value = false;
 };
+
+//ANCHOR Increment time
+
+// get duration
+const increment = () => {
+  np.elapsed++;
+  if (np.elapsed >= np.duration) {
+    refresh();
+  }
+  // add +1 to elasped
+
+  // when elasped >= duration
+
+  //refresh
+};
+
+let interval = setInterval(increment, 1000);
 </script>
 
 <style>
