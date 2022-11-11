@@ -13,6 +13,7 @@
     <div class="hero-content text-center text-white">
       <div class="max-w-ls flex flex-col md:flex-row lg:flex-row">
         <transition name="fade" mode="out-in" appear>
+          <!-- ANCHOR Album art -->
           <img
             class="w-80 my-auto rounded mt-28"
             :src="info.now_playing.song.art"
@@ -20,6 +21,7 @@
             srcset=""
           />
         </transition>
+        <!-- ANCHOR Meta data -->
         <p class="mt-5 mb-2 font-bold">
           {{ info.now_playing.song.artist }}
         </p>
@@ -48,116 +50,155 @@
         </div>
 
         <!-- SECTION Audio buttons -->
-        <div class="space-x-20 mb-5">
-          <!-- ANCHOR Playlist Button -->
-          <a :href="info.station.playlist_pls_url">
-            <button class="text-white">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.0"
-                stroke="currentColor"
-                class="w-10 h-10 mx-auto"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                />
-              </svg>
-              Playlist
-            </button>
-          </a>
-          <!-- ANCHOR Audio -->
-          <audio id="stream">
-            <source :src="info.station.listen_url" type="audio/mpeg" />
-            Your browser does not support the audio element.
-          </audio>
+        <div class="flex flex-row mb-5">
+          <div class="flex my-auto">
+            <!-- ANCHOR Playlist Button -->
+            <a :href="info.station.playlist_pls_url">
+              <button class="text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.0"
+                  stroke="currentColor"
+                  class="w-6 h-6 mx-auto"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  />
+                </svg>
+                Playlist
+              </button>
+            </a>
 
-          <!-- ANCHOR Play button -->
-          <transition name="fade" mode="out-in">
-            <button
-              v-if="playing === false"
-              @click="playAudio"
-              class="ease duration-700"
-            >
+            <!-- ANCHOR History button -->
+            <!-- The button to open modal -->
+            <label for="my-modal-6" class="btn btn-ghost normal-case flex-col">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.0"
-                stroke="currentColor"
-                class="w-16 h-16"
+                fill="currentColor"
+                class="w-6 h-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z"
+                  d="M5.625 3.75a2.625 2.625 0 100 5.25h12.75a2.625 2.625 0 000-5.25H5.625zM3.75 11.25a.75.75 0 000 1.5h16.5a.75.75 0 000-1.5H3.75zM3 15.75a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75zM3.75 18.75a.75.75 0 000 1.5h16.5a.75.75 0 000-1.5H3.75z"
                 />
               </svg>
-            </button>
+              History
+            </label>
 
-            <!-- ANCHOR Pause button -->
-            <button v-else class="text-secondary" @click="playAudio">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.0"
-                stroke="currentColor"
-                class="w-16 h-16"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M14.25 9v6m-4.5 0V9M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </button>
-          </transition>
+            <!-- Put this part before </body> tag -->
+            <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+            <div class="modal modal-bottom sm:modal-middle">
+              <div class="modal-box">
+                <h3 class="font-bold text-lg">
+                  Congratulations random Internet user!
+                </h3>
+                <p class="py-4">
+                  You've been selected for a chance to get one year of
+                  subscription to use Wikipedia for free!
+                </p>
+                <div class="modal-action">
+                  <label for="my-modal-6" class="btn">Yay!</label>
+                </div>
+              </div>
+            </div>
 
-          <!-- ANCHOR Mute button -->
-          <transition name="fade" mode="out-in">
-            <button v-if="muted === false" @click="muteAudio">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.0"
-                stroke="currentColor"
-                class="w-14 h-14"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z"
-                />
-              </svg>
-            </button>
+            <!--  -->
+          </div>
+          <div class="flex grow">
+            <!-- ANCHOR Audio -->
+            <audio id="stream">
+              <source :src="info.station.listen_url" type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
 
-            <button v-else @click="muteAudio" class="text-secondary">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.0"
-                stroke="currentColor"
-                class="w-14 h-14"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z"
-                />
-              </svg>
-            </button>
-          </transition>
+            <!-- ANCHOR Play button -->
+            <span class="float-left">
+              <transition name="fade" mode="out-in">
+                <button v-if="playing === false" @click="playAudio">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.0"
+                    stroke="currentColor"
+                    class="w-16 h-16"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z"
+                    />
+                  </svg>
+                </button>
+
+                <!-- ANCHOR Pause button -->
+                <button v-else class="text-secondary" @click="playAudio">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.0"
+                    stroke="currentColor"
+                    class="w-16 h-16"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14.25 9v6m-4.5 0V9M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </button>
+              </transition>
+            </span>
+          </div>
+          <div class="flex w-1/4">
+            <!-- ANCHOR Mute button -->
+            <span class="ml-auto my-auto">
+              <transition name="fade" mode="out-in">
+                <button v-if="muted === false" @click="muteAudio">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.0"
+                    stroke="currentColor"
+                    class="w-10 h-10"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z"
+                    />
+                  </svg>
+                </button>
+
+                <button v-else @click="muteAudio" class="text-secondary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.0"
+                    stroke="currentColor"
+                    class="w-10 h-10"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z"
+                    />
+                  </svg>
+                </button> </transition
+            ></span>
+          </div>
         </div>
         <!-- !SECTION -->
 
