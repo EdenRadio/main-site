@@ -526,10 +526,10 @@
     "vite-plugin-checker" "^0.5.1"
     "vue-bundle-renderer" "^0.4.4"
 
-"@nuxtjs/tailwindcss@^6.1.2":
-  "integrity" "sha512-cIyqbyvceZS9DGiDYwwBlUS7vB6gOlBnvQ2QAAvrL2VzK0MA4AH2yaqCLJuHrzvLUp1v3uRw22KLvY6w2t8pCQ=="
-  "resolved" "https://registry.npmjs.org/@nuxtjs/tailwindcss/-/tailwindcss-6.1.2.tgz"
-  "version" "6.1.2"
+"@nuxtjs/tailwindcss@^6.1.3":
+  "integrity" "sha512-XgoltsFhpX5SCxgUA9cEyLuKyH9xkjlfT+npDQNhSW71/BpeNPmmtjyD+o5ShAvyiZD2AzvZ0/P/eMNDfT33fA=="
+  "resolved" "https://registry.npmjs.org/@nuxtjs/tailwindcss/-/tailwindcss-6.1.3.tgz"
+  "version" "6.1.3"
   dependencies:
     "@nuxt/kit" "^3.0.0-rc.12"
     "@nuxt/postcss8" "^1.1.3"

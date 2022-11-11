@@ -1,12 +1,17 @@
 <template>
   <div class="hero min-h-screen">
     <div class="hero-overlay bg-opacity-0">
-      <h1 class="my-16 ml-5 text-3xl font-bold text-white text-left">
-        {{ info.station.name }}
-      </h1>
+      <div class="flex flex-row">
+        <h1
+          class="hidden md:flex lg:flex my-16 mx-5 text-3xl font-bold text-white text-left"
+        >
+          {{ info.station.name }}
+        </h1>
+        <img src="/Eden-logo.png" alt="" class="ml-10 h-10 my-14" />
+      </div>
     </div>
     <div class="hero-content text-center text-white">
-      <div class="max-w-ls flex flex-col md:flex-row lg:flex-row my-auto">
+      <div class="max-w-ls flex flex-col md:flex-row lg:flex-row">
         <transition name="fade" mode="out-in" appear>
           <img
             class="w-80 my-auto rounded mt-28"
@@ -26,7 +31,7 @@
           :max="info.now_playing.duration"
         ></progress>
         <div class="flex justify-between">
-          <div>
+          <div class="mb-5">
             {{
               new Date(info.now_playing.elapsed * 1000)
                 .toISOString()
@@ -43,7 +48,7 @@
         </div>
 
         <!-- SECTION Audio buttons -->
-        <div class="space-x-14 mb-5">
+        <div class="space-x-20 mb-5">
           <!-- ANCHOR Playlist Button -->
           <a :href="info.station.playlist_pls_url">
             <button class="text-white">
@@ -74,7 +79,7 @@
           <transition name="fade" mode="out-in">
             <button
               v-if="playing === false"
-              @click="playAudio()"
+              @click="playAudio"
               class="ease duration-700"
             >
               <svg
@@ -83,7 +88,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.0"
                 stroke="currentColor"
-                class="w-14 h-14"
+                class="w-16 h-16"
               >
                 <path
                   stroke-linecap="round"
@@ -99,7 +104,27 @@
             </button>
 
             <!-- ANCHOR Pause button -->
-            <button v-else class="text-secondary" @click="playAudio()">
+            <button v-else class="text-secondary" @click="playAudio">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.0"
+                stroke="currentColor"
+                class="w-16 h-16"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14.25 9v6m-4.5 0V9M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </button>
+          </transition>
+
+          <!-- ANCHOR Mute button -->
+          <transition name="fade" mode="out-in">
+            <button v-if="muted === false" @click="muteAudio">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -111,31 +136,32 @@
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M14.25 9v6m-4.5 0V9M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z"
+                />
+              </svg>
+            </button>
+
+            <button v-else @click="muteAudio" class="text-secondary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.0"
+                stroke="currentColor"
+                class="w-14 h-14"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z"
                 />
               </svg>
             </button>
           </transition>
-          <!-- ANCHOR Mute button -->
-          <button @click="muteAudio">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.0"
-              stroke="currentColor"
-              class="w-14 h-14"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z"
-              />
-            </svg>
-          </button>
         </div>
         <!-- !SECTION -->
 
+        <!-- ANCHOR Volume slider -->
         <div>
           <input
             id="stream-vol"
@@ -143,7 +169,7 @@
             min="0"
             max="100"
             value="40"
-            class="range range-info range-md"
+            class="range range-info range-md hidden lg:flex"
             @click="setVolume"
           />
         </div>
@@ -155,7 +181,7 @@
 const { data: info, refresh } = await useFetch(
   "https://edenofthewest.com/api/nowplaying/1",
   {
-    pick: ["station", "now_playing"],
+    pick: ["station", "now_playing", "song_history"],
   }
 );
 
