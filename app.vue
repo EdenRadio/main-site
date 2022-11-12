@@ -77,7 +77,7 @@
             <!-- The button to open modal -->
             <label
               for="my-modal-6"
-              class="btn btn-ghost normal-case font-normal flex-col"
+              class="btn btn-ghost normal-case font-normal flex-col pr-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,12 +94,14 @@
 
             <!-- Put this part before </body> tag -->
             <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-              <div class="modal-box">
+            <div class="modal modal-bottom sm:modal-middle backdrop-blur-sm">
+              <div class="modal-box glass">
                 <h3 class="font-bold text-lg">Song History</h3>
                 <History :song_history="info.song_history" />
                 <div class="modal-action">
-                  <label for="my-modal-6" class="btn mx-auto mt-0">close</label>
+                  <label for="my-modal-6" class="btn btn-ghost mx-auto mt-0"
+                    >close</label
+                  >
                 </div>
               </div>
             </div>
@@ -114,7 +116,7 @@
             </audio>
 
             <!-- ANCHOR Play button -->
-            <span class="float-left">
+            <span class="mx-auto">
               <transition name="fade" mode="out-in">
                 <button v-if="playing === false" @click="playAudio">
                   <svg

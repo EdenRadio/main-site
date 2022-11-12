@@ -15,12 +15,10 @@
             />
           </div>
           <div class="flex-1 min-w-0">
-            <p
-              class="text-sm font-medium text-gray-900 truncate dark:text-white"
-            >
+            <p class="text-sm font-bold">
               {{ item.song.artist }}
             </p>
-            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+            <p class="text-sm text-white truncate">
               {{ item.song.title }}
             </p>
           </div>
