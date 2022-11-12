@@ -1,5 +1,8 @@
 <template>
-  <div class="hero min-h-screen" style="background-image: url(day-sky.jpg)">
+  <div
+    class="hero min-h-screen"
+    style="background-image: url(day-sky.jpg); background-size: auto"
+  >
     <div class="hero-overlay bg-opacity-0">
       <div class="flex flex-row">
         <h1
@@ -11,7 +14,7 @@
       </div>
     </div>
     <div class="hero-content text-center text-white">
-      <div class="max-w-ls flex flex-col md:flex-row lg:flex-row">
+      <div class="flex flex-col lg:flex-row">
         <transition name="fade" mode="out-in" appear>
           <!-- ANCHOR Album art -->
           <img
