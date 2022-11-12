@@ -27,7 +27,7 @@
           <div
             class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
           >
-            time since played
+            {{ item.played_at }}
           </div>
         </div>
       </li>
@@ -37,4 +37,3 @@
 <script setup>
 const props = defineProps(["song_history"]);
 </script>
-<style lang=""></style>
