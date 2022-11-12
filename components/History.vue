@@ -5,13 +5,13 @@
       v-for="(item, index) in song_history"
       :key="index"
     >
-      <li class="pb-3 sm:pb-4">
+      <li class="mb-3">
         <div class="flex items-center space-x-4">
           <div class="flex-shrink-0">
             <img
               class="w-8 h-8 rounded"
               :src="item.song.art"
-              alt="Neil image"
+              :alt="item.song.artist + ' album art'"
             />
           </div>
           <div class="flex-1 min-w-0">
@@ -27,7 +27,7 @@
           <div
             class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
           >
-            {{ item.played_at }}
+            {{ DateTime.fromSeconds(item.played_at).toRelative() }}
           </div>
         </div>
       </li>
@@ -35,5 +35,6 @@
   </div>
 </template>
 <script setup>
+import { DateTime } from "luxon";
 const props = defineProps(["song_history"]);
 </script>

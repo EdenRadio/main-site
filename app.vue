@@ -99,7 +99,7 @@
                 <h3 class="font-bold text-lg">Song History</h3>
                 <History :song_history="info.song_history" />
                 <div class="modal-action">
-                  <label for="my-modal-6" class="btn">Yay!</label>
+                  <label for="my-modal-6" class="btn mx-auto mt-0">close</label>
                 </div>
               </div>
             </div>
