@@ -1,5 +1,5 @@
 <template>
-  <div class="hero min-h-screen">
+  <div class="hero min-h-screen" style="background-image: url(day-sky.jpg)">
     <div class="hero-overlay bg-opacity-0">
       <div class="flex flex-row">
         <h1
@@ -297,11 +297,6 @@ let interval = setInterval(increment, 1000);
 </script>
 
 <style>
-.hero {
-  background-image: url(day-sky.jpg);
-  background-size: auto;
-}
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s ease;
