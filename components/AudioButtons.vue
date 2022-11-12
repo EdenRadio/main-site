@@ -3,7 +3,9 @@
     <div class="flex my-auto">
       <!-- ANCHOR Playlist Button -->
       <a :href="station.playlist_pls_url">
-        <button class="text-white">
+        <button
+          class="btn btn-ghost font-light px-0 mr-3 text-white normal-case flex-col hover:bg-transparent"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -26,7 +28,7 @@
       <!-- The button to open modal -->
       <label
         for="my-modal-6"
-        class="btn btn-ghost normal-case font-normal flex-col pr-0"
+        class="btn btn-ghost font-light normal-case flex-col px-0 hover:bg-transparent"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +69,11 @@
       <!-- ANCHOR Play button -->
       <span class="mx-auto">
         <transition name="fade" mode="out-in">
-          <button v-if="playing === false" @click="playAudio">
+          <button
+            v-if="playing === false"
+            @click="playAudio"
+            class="btn btn-ghost hover:bg-transparent px-0"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -90,7 +96,11 @@
           </button>
 
           <!-- ANCHOR Pause button -->
-          <button v-else class="text-secondary" @click="playAudio">
+          <button
+            v-else
+            class="text-secondary btn btn-ghost hover:bg-transparent px-0"
+            @click="playAudio"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -113,7 +123,11 @@
       <!-- ANCHOR Mute button -->
       <span class="ml-auto my-auto">
         <transition name="fade" mode="out-in">
-          <button v-if="muted === false" @click="muteAudio">
+          <button
+            v-if="muted === false"
+            @click="muteAudio"
+            class="btn btn-ghost hover:bg-transparent px-0"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -130,7 +144,11 @@
             </svg>
           </button>
 
-          <button v-else @click="muteAudio" class="text-secondary">
+          <button
+            v-else
+            @click="muteAudio"
+            class="text-secondary btn btn-ghost hover:bg-transparent px-0"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
