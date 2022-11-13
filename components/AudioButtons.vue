@@ -68,7 +68,7 @@
 
       <!-- ANCHOR Play button -->
       <div
-        class="grow my-auto text-right lg:flex lg:flex-row lg:space-x-5 lg:mb-5 lg:justify-end lg:mr-5"
+        class="grow my-auto lg:flex lg:flex-row lg:space-x-5 lg:mb-5 lg:justify-end lg:mr-5"
       >
         <!-- ANCHOR History button -->
         <!-- The button to open modal -->
