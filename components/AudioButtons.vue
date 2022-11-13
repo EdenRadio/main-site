@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex my-auto">
+    <div class="flex my-auto lg:hidden">
       <!-- ANCHOR Playlist Button -->
       <a :href="station.playlist_pls_url">
         <button
@@ -28,7 +28,7 @@
       <!-- The button to open modal -->
       <label
         for="my-modal-6"
-        class="btn btn-ghost font-light normal-case flex-col px-0 hover:bg-transparent text-right lg:hidden"
+        class="btn btn-ghost font-light normal-case flex-col px-0 hover:bg-transparent text-right"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,9 @@
       </audio>
 
       <!-- ANCHOR Play button -->
-      <span class="mx-auto lg:flex lg:flex-row lg:space-x-5 lg:mx-auto lg:mb-5">
+      <div
+        class="grow my-auto text-right lg:flex lg:flex-row lg:space-x-5 lg:mb-5 lg:justify-end lg:mr-5"
+      >
         <!-- ANCHOR History button -->
         <!-- The button to open modal -->
         <label
@@ -182,7 +184,19 @@
             </button>
           </transition>
         </div>
-      </span>
+      </div>
+      <!-- ANCHOR Volume slider -->
+      <div class="">
+        <input
+          id="test"
+          type="range"
+          min="0"
+          max="100"
+          value="40"
+          class="range range-info range-xs hidden lg:flex my-4 w-full"
+          @click="setVolume"
+        />
+      </div>
     </div>
     <div class="flex w-1/4 lg:hidden">
       <!-- ANCHOR Mute button -->
@@ -271,6 +285,27 @@ const muteAudio = () => {
       muted.value = false;
       break;
   }
+
+  // SECTION Audio
+
+  // ANCHOR convert slider value
+  let volume = ref(false);
+
+  const convertSlider = () => {
+    let v = document.getElementById("test").value;
+
+    return v * 0.01;
+  };
+
+  // ANCHOR adjust volume with converted value
+  const setVolume = () => {
+    let x = document.getElementById("stream");
+
+    // console.log(convertSlider());
+
+    x.volume = convertSlider();
+  };
+  // !SECTION
 };
 </script>
 <style lang=""></style>

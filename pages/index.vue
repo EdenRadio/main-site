@@ -13,7 +13,7 @@
       />
     </div>
     <div
-      class="hero-content h-full text-center text-white lg:mx-auto lg:h-[75vh] grow"
+      class="hero-content mt-10 text-center text-white lg:mx-auto lg:h-[75vh] grow"
     >
       <div
         class="flex flex-col lg:flex-row-reverse grow h-full justify-around content-center"
@@ -42,7 +42,7 @@
             :value="info.now_playing.elapsed"
             :max="info.now_playing.duration"
           ></progress>
-          <div class="flex justify-between">
+          <div class="flex justify-between mb-5">
             <div class="">
               {{
                 new Date(info.now_playing.elapsed * 1000)
@@ -67,19 +67,6 @@
           />
 
           <!-- !SECTION -->
-
-          <!-- ANCHOR Volume slider -->
-          <div>
-            <input
-              id="stream-vol"
-              type="range"
-              min="0"
-              max="100"
-              value="40"
-              class="range range-info range-xs hidden lg:flex"
-              @click="setVolume"
-            />
-          </div>
         </div>
       </div>
     </div>
@@ -92,7 +79,7 @@ definePageMeta({
 
 const { data: info, refresh } = await useFetch(
   "https://edenofthewest.com/api/nowplaying/1",
-  { lazy: true, pick: ["station", "now_playing", "song_history"] }
+  { pick: ["station", "now_playing", "song_history"] }
 );
 
 useHead({
@@ -102,25 +89,6 @@ useHead({
 
 let np = info.value.now_playing;
 let st = info.value.station;
-
-// SECTION Audio
-
-// ANCHOR convert slider value
-let volume = ref(false);
-
-const convertSlider = () => {
-  let v = document.getElementById("stream-vol").value;
-
-  return v * 0.01;
-};
-
-// ANCHOR adjust volume with converted value
-const setVolume = () => {
-  let x = document.getElementById("stream");
-
-  x.volume = convertSlider();
-};
-// !SECTION
 
 //ANCHOR Increment time
 const increment = () => {
