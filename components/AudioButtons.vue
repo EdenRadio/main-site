@@ -73,7 +73,7 @@
         <!-- ANCHOR History button -->
         <!-- The button to open modal -->
         <label
-          for="my-modal-6"
+          for="my-modal-7"
           class="btn btn-ghost font-light normal-case flex-col px-0 hover:bg-transparent text-right hidden lg:flex"
         >
           <svg
@@ -185,10 +185,26 @@
           </transition>
         </div>
       </div>
+
+      <!-- Put this part before </body> tag -->
+      <input type="checkbox" id="my-modal-7" class="modal-toggle" />
+      <div class="modal modal-bottom sm:modal-middle backdrop-blur-sm lg:m-0">
+        <div class="modal-box glass">
+          <h3 class="font-bold text-lg">Song History</h3>
+          <History :song_history="song_history" />
+          <div class="modal-action">
+            <label for="my-modal-7" class="btn btn-ghost mx-auto mt-0"
+              >close</label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!--  -->
       <!-- ANCHOR Volume slider -->
       <div class="">
         <input
-          id="test"
+          id="stream-vol"
           type="range"
           min="0"
           max="100"
@@ -285,27 +301,25 @@ const muteAudio = () => {
       muted.value = false;
       break;
   }
-
-  // SECTION Audio
-
-  // ANCHOR convert slider value
-  let volume = ref(false);
-
-  const convertSlider = () => {
-    let v = document.getElementById("test").value;
-
-    return v * 0.01;
-  };
-
-  // ANCHOR adjust volume with converted value
-  const setVolume = () => {
-    let x = document.getElementById("stream");
-
-    // console.log(convertSlider());
-
-    x.volume = convertSlider();
-  };
-  // !SECTION
 };
+
+// SECTION Audio
+
+// ANCHOR convert slider value
+let volume = ref(false);
+
+const convertSlider = () => {
+  let v = document.getElementById("stream-vol").value;
+
+  return v * 0.01;
+};
+
+// ANCHOR adjust volume with converted value
+const setVolume = () => {
+  let x = document.getElementById("stream");
+
+  x.volume = convertSlider();
+};
+// !SECTION
 </script>
 <style lang=""></style>
