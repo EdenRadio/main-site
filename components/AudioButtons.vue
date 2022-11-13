@@ -4,7 +4,7 @@
       <!-- ANCHOR Playlist Button -->
       <a :href="station.playlist_pls_url">
         <button
-          class="btn btn-ghost font-light px-0 mr-3 text-white normal-case flex-col hover:bg-transparent"
+          class="btn btn-ghost font-light px-0 mr-3 text-white normal-case flex-col hover:bg-transparent lg:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@
       <!-- The button to open modal -->
       <label
         for="my-modal-6"
-        class="btn btn-ghost font-light normal-case flex-col px-0 hover:bg-transparent"
+        class="btn btn-ghost font-light normal-case flex-col px-0 hover:bg-transparent text-right lg:hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,26 @@
       </audio>
 
       <!-- ANCHOR Play button -->
-      <span class="mx-auto">
+      <span class="mx-auto lg:flex lg:flex-row lg:space-x-5 lg:mx-auto lg:mb-5">
+        <!-- ANCHOR History button -->
+        <!-- The button to open modal -->
+        <label
+          for="my-modal-6"
+          class="btn btn-ghost font-light normal-case flex-col px-0 hover:bg-transparent text-right hidden lg:flex"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              d="M5.625 3.75a2.625 2.625 0 100 5.25h12.75a2.625 2.625 0 000-5.25H5.625zM3.75 11.25a.75.75 0 000 1.5h16.5a.75.75 0 000-1.5H3.75zM3 15.75a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75zM3.75 18.75a.75.75 0 000 1.5h16.5a.75.75 0 000-1.5H3.75z"
+            />
+          </svg>
+          History
+        </label>
+
         <transition name="fade" mode="out-in">
           <button
             v-if="playing === false"
@@ -117,11 +136,57 @@
             </svg>
           </button>
         </transition>
+
+        <div class="hidden lg:flex">
+          <transition name="fade" mode="out-in">
+            <button
+              v-if="muted === false"
+              @click="muteAudio"
+              class="btn btn-ghost hover:bg-transparent px-0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.0"
+                stroke="currentColor"
+                class="w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z"
+                />
+              </svg>
+            </button>
+
+            <button
+              v-else
+              @click="muteAudio"
+              class="text-secondary btn btn-ghost hover:bg-transparent px-0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.0"
+                stroke="currentColor"
+                class="w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z"
+                />
+              </svg>
+            </button>
+          </transition>
+        </div>
       </span>
     </div>
-    <div class="flex w-1/4">
+    <div class="flex w-1/4 lg:hidden">
       <!-- ANCHOR Mute button -->
-      <span class="ml-auto my-auto">
+      <span class="ml-auto my-auto lg:hidden">
         <transition name="fade" mode="out-in">
           <button
             v-if="muted === false"

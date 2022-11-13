@@ -1,8 +1,8 @@
 <template>
-  <div class="w-screen min-h-screen">
-    <div class="flex flex-row">
+  <div class="w-screen min-h-screen space-y-even">
+    <div class="flex flex-row lg:my-16">
       <h1
-        class="hidden md:flex lg:flex my-16 lg:my5 md:mx-auto mx-5 text-4xl font-bold text-white text-left"
+        class="hidden md:flex lg:flex lg:my5 md:mx-auto mx-5 text-4xl font-bold text-white text-left"
       >
         {{ info.station.name }}
       </h1>
@@ -12,18 +12,30 @@
         class="ml-10 h-10 my-14 md:hidden lg:hidden"
       />
     </div>
-    <div class="hero-content text-center text-white mx-auto lg:h-[75vh] grow">
+    <div
+      class="hero-content h-full text-center text-white lg:mx-auto lg:h-[75vh] grow"
+    >
       <div
         class="flex flex-col lg:flex-row-reverse grow h-full justify-around content-center"
       >
-        <div class="my-auto w-1/2">
+        <div class="lg:my-auto lg:w-1/2">
           <!-- ANCHOR Album art -->
           <AlbumArt :now_playing="info.now_playing" />
         </div>
 
-        <div class="my-auto w-1/2">
+        <div class="lg:my-auto lg:w-1/2">
+          <h2 class="hidden lg:flex font-bold text-left text-3xl mb-10">
+            {{ info.now_playing.song.album }}
+          </h2>
+
+          <p class="hidden lg:flex lg:text-left lg:mb-10">Socials</p>
           <!-- ANCHOR Meta data -->
-          <MetaData :now_playing="info.now_playing" />
+          <MetaData
+            :now_playing="info.now_playing"
+            :station="info.station"
+            :song_history="info.song_history"
+            class="lg:mb-20"
+          />
 
           <progress
             class="progress progress-info mt-5"
@@ -31,7 +43,7 @@
             :max="info.now_playing.duration"
           ></progress>
           <div class="flex justify-between">
-            <div class="mb-5">
+            <div class="">
               {{
                 new Date(info.now_playing.elapsed * 1000)
                   .toISOString()
@@ -64,7 +76,7 @@
               min="0"
               max="100"
               value="40"
-              class="range range-info range-md hidden lg:flex"
+              class="range range-info range-xs hidden lg:flex"
               @click="setVolume"
             />
           </div>
@@ -80,9 +92,7 @@ definePageMeta({
 
 const { data: info, refresh } = await useFetch(
   "https://edenofthewest.com/api/nowplaying/1",
-  {
-    pick: ["station", "now_playing", "song_history"],
-  }
+  { lazy: true, pick: ["station", "now_playing", "song_history"] }
 );
 
 useHead({

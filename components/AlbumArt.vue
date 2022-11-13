@@ -2,7 +2,7 @@
   <div>
     <transition name="fade" mode="out-in" appear>
       <img
-        class="w-80 lg:h-96 lg:w-96 m-auto rounded mt-28"
+        class="w-80 lg:h-96 lg:w-96 m-auto rounded"
         :src="now_playing.song.art"
         :alt="now_playing.song.album + ' album art'"
         srcset=""
