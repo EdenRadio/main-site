@@ -424,30 +424,6 @@
     "unimport" "^0.6.8"
     "untyped" "^0.5.0"
 
-"@nuxt/kit@^3.0.0-rc.13":
-  "integrity" "sha512-FYEnMRm4LvIUxygmBX/p5kykzSeBleUqCOfxervQFONkz5PVVYXEp1DDBINGR3xk01yuPElENuf+l59iEQ4q7g=="
-  "resolved" "https://registry.npmjs.org/@nuxt/kit/-/kit-3.0.0-rc.13.tgz"
-  "version" "3.0.0-rc.13"
-  dependencies:
-    "@nuxt/schema" "3.0.0-rc.13"
-    "c12" "^0.2.13"
-    "consola" "^2.15.3"
-    "defu" "^6.1.0"
-    "globby" "^13.1.2"
-    "hash-sum" "^2.0.0"
-    "ignore" "^5.2.0"
-    "jiti" "^1.16.0"
-    "knitwork" "^0.1.2"
-    "lodash.template" "^4.5.0"
-    "mlly" "^0.5.16"
-    "pathe" "^0.3.9"
-    "pkg-types" "^0.3.6"
-    "scule" "^0.3.2"
-    "semver" "^7.3.8"
-    "unctx" "^2.0.2"
-    "unimport" "^0.7.0"
-    "untyped" "^0.5.0"
-
 "@nuxt/postcss8@^1.1.3":
   "integrity" "sha512-CdHtErhvQwueNZPBOmlAAKrNCK7aIpZDYhtS7TzXlSgPHHox1g3cSlf+Ke9oB/8t4mNNjdB+prclme2ibuCOEA=="
   "resolved" "https://registry.npmjs.org/@nuxt/postcss8/-/postcss8-1.1.3.tgz"
@@ -478,24 +454,6 @@
     "std-env" "^3.3.0"
     "ufo" "^0.8.6"
     "unimport" "^0.6.8"
-    "untyped" "^0.5.0"
-
-"@nuxt/schema@3.0.0-rc.13":
-  "integrity" "sha512-yfNPvUkOQ1/8aKHX8OtU7stANAaZ3B8Rty7HPuo1KHv0R3wNqlRdoRXwFuf4D+jcsS+R5Kccr7i8YYD5IG56Iw=="
-  "resolved" "https://registry.npmjs.org/@nuxt/schema/-/schema-3.0.0-rc.13.tgz"
-  "version" "3.0.0-rc.13"
-  dependencies:
-    "c12" "^0.2.13"
-    "create-require" "^1.1.1"
-    "defu" "^6.1.0"
-    "jiti" "^1.16.0"
-    "pathe" "^0.3.9"
-    "pkg-types" "^0.3.6"
-    "postcss-import-resolver" "^2.0.0"
-    "scule" "^0.3.2"
-    "std-env" "^3.3.0"
-    "ufo" "^0.8.6"
-    "unimport" "^0.7.0"
     "untyped" "^0.5.0"
 
 "@nuxt/telemetry@^2.1.6":
@@ -567,14 +525,6 @@
     "vite-node" "^0.24.3"
     "vite-plugin-checker" "^0.5.1"
     "vue-bundle-renderer" "^0.4.4"
-
-"@nuxtjs/device@^3.0.0":
-  "integrity" "sha512-81ZXEyJ/6rZEGTUIfgUjsHWBWB1InHayN83LVW63/TclVyrrb/Si47BczkGcIgmiETcKTM9iaqMLcDfu9M7BNg=="
-  "resolved" "https://registry.npmjs.org/@nuxtjs/device/-/device-3.0.0.tgz"
-  "version" "3.0.0"
-  dependencies:
-    "@nuxt/kit" "^3.0.0-rc.13"
-    "defu" "^6.1.0"
 
 "@nuxtjs/sitemap@^2.4.0":
   "integrity" "sha512-TVgIYOtPp7KAfaUo76WRpGbO20j4D/xi/A7shFIGjARHs+FvfAWXNCtBT87dTwe/RoYzAsEKtijFFUTaSu5bUA=="
@@ -680,15 +630,6 @@
     "picomatch" "^2.2.2"
 
 "@rollup/pluginutils@^5.0.1":
-  "integrity" "sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA=="
-  "resolved" "https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-5.0.2.tgz"
-  "version" "5.0.2"
-  dependencies:
-    "@types/estree" "^1.0.0"
-    "estree-walker" "^2.0.2"
-    "picomatch" "^2.3.1"
-
-"@rollup/pluginutils@^5.0.2":
   "integrity" "sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA=="
   "resolved" "https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-5.0.2.tgz"
   "version" "5.0.2"
@@ -2902,11 +2843,6 @@
   "resolved" "https://registry.npmjs.org/is-interactive/-/is-interactive-2.0.0.tgz"
   "version" "2.0.0"
 
-"is-mobile@^3.1.1":
-  "integrity" "sha512-RRoXXR2HNFxNkUnxtaBdGBXtFlUMFa06S0NUKf/LCF+MuGLu13gi9iBCkoEmc6+rpXuwi5Mso5V8Zf7mNynMBQ=="
-  "resolved" "https://registry.npmjs.org/is-mobile/-/is-mobile-3.1.1.tgz"
-  "version" "3.1.1"
-
 "is-module@^1.0.0":
   "integrity" "sha512-51ypPSPCoTEIN9dy5Oy+h4pShgJmPCygKfyRCISBI+JoWT/2oJvK8QPxmwv7b/p239jXrm9M1mlQbyKJ5A152g=="
   "resolved" "https://registry.npmjs.org/is-module/-/is-module-1.0.0.tgz"
@@ -3904,7 +3840,7 @@
   "resolved" "https://registry.npmjs.org/pify/-/pify-2.3.0.tgz"
   "version" "2.3.0"
 
-"pkg-types@^0.3.5", "pkg-types@^0.3.6":
+"pkg-types@^0.3.5":
   "integrity" "sha512-uQZutkkh6axl1GxDm5/+8ivVdwuJ5pyDGqJeSiIWIUWIqYiK3p9QKozN/Rv6eVvFoeSWkN1uoYeSDBwwBJBtbg=="
   "resolved" "https://registry.npmjs.org/pkg-types/-/pkg-types-0.3.6.tgz"
   "version" "0.3.6"
@@ -5073,23 +5009,6 @@
     "strip-literal" "^0.4.2"
     "unplugin" "^0.9.6"
 
-"unimport@^0.7.0":
-  "integrity" "sha512-Cr0whz4toYVid3JHlni/uThwavDVVCk6Zw0Gxnol1c7DprTA+Isr4T+asO6rDGkhkgV7r3vSdSs5Ym8F15JA+w=="
-  "resolved" "https://registry.npmjs.org/unimport/-/unimport-0.7.0.tgz"
-  "version" "0.7.0"
-  dependencies:
-    "@rollup/pluginutils" "^5.0.2"
-    "escape-string-regexp" "^5.0.0"
-    "fast-glob" "^3.2.12"
-    "local-pkg" "^0.4.2"
-    "magic-string" "^0.26.7"
-    "mlly" "^0.5.16"
-    "pathe" "^0.3.9"
-    "pkg-types" "^0.3.5"
-    "scule" "^0.3.2"
-    "strip-literal" "^0.4.2"
-    "unplugin" "^0.10.2"
-
 "universalify@^0.1.0":
   "integrity" "sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg=="
   "resolved" "https://registry.npmjs.org/universalify/-/universalify-0.1.2.tgz"
@@ -5101,16 +5020,6 @@
   "version" "2.0.0"
 
 "unplugin@^0.10.0":
-  "integrity" "sha512-6rk7GUa4ICYjae5PrAllvcDeuT8pA9+j5J5EkxbMFaV+SalHhxZ7X2dohMzu6C3XzsMT+6jwR/+pwPNR3uK9MA=="
-  "resolved" "https://registry.npmjs.org/unplugin/-/unplugin-0.10.2.tgz"
-  "version" "0.10.2"
-  dependencies:
-    "acorn" "^8.8.0"
-    "chokidar" "^3.5.3"
-    "webpack-sources" "^3.2.3"
-    "webpack-virtual-modules" "^0.4.5"
-
-"unplugin@^0.10.2":
   "integrity" "sha512-6rk7GUa4ICYjae5PrAllvcDeuT8pA9+j5J5EkxbMFaV+SalHhxZ7X2dohMzu6C3XzsMT+6jwR/+pwPNR3uK9MA=="
   "resolved" "https://registry.npmjs.org/unplugin/-/unplugin-0.10.2.tgz"
   "version" "0.10.2"

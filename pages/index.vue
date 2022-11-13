@@ -90,10 +90,6 @@ useHead({
   meta: [{ name: "description", content: info.value.station.description }],
 });
 
-const { isMobile } = useDevice();
-
-console.log(isMobile);
-
 let np = info.value.now_playing;
 let st = info.value.station;
 
