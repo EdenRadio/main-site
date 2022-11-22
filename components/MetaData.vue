@@ -3,6 +3,7 @@
     <div class="hidden lg:flex mt-auto">
       <a :href="station.playlist_pls_url" class="">
         <button
+          role="command"
           class="btn btn-ghost font-light px-0 mr-3 text-white normal-case flex-col hover:bg-transparent"
         >
           <svg

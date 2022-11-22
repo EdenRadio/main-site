@@ -8,7 +8,8 @@
       <li class="mb-3">
         <div class="flex items-center space-x-4">
           <div class="flex-shrink-0">
-            <img
+            <nuxt-picture
+              format="webp"
               class="w-8 h-8 rounded"
               :src="item.song.art"
               :alt="item.song.artist + ' album art'"

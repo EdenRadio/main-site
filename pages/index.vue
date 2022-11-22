@@ -6,7 +6,8 @@
       >
         {{ info.station.name }}
       </h1>
-      <img
+      <nuxt-picture
+        format="webp"
         src="/Eden-logo.png"
         alt="Eden of the west logo"
         class="ml-10 h-10 my-14 md:hidden lg:hidden"
@@ -123,7 +124,16 @@ const { data: info, refresh } = await useFetch(
 useHead({
   title: info.value.station.name,
   meta: [{ name: "description", content: info.value.station.description }],
+  htmlAttrs: {
+    lang: "en",
+  },
   link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+  link: [
+    {
+      rel: "canonical",
+      href: "https://alpha.edenofthewest.com",
+    },
+  ],
 });
 
 let np = info.value.now_playing;

@@ -4,6 +4,7 @@
       <!-- ANCHOR Playlist Button -->
       <a :href="station.playlist_pls_url">
         <button
+          role="command"
           class="btn btn-ghost font-light px-0 mr-3 text-white normal-case flex-col hover:bg-transparent lg:hidden"
         >
           <svg
@@ -91,6 +92,7 @@
 
         <transition name="fade" mode="out-in">
           <button
+            role="command"
             v-if="playing === false"
             @click="playAudio"
             class="btn btn-ghost hover:bg-transparent px-0"
@@ -119,6 +121,7 @@
           <!-- ANCHOR Pause button -->
           <button
             v-else
+            role="command"
             class="text-secondary btn btn-ghost hover:bg-transparent px-0"
             @click="playAudio"
           >
@@ -143,6 +146,7 @@
           <transition name="fade" mode="out-in">
             <button
               v-if="muted === false"
+              role="command"
               @click="muteAudio"
               class="btn btn-ghost hover:bg-transparent px-0"
             >
@@ -164,6 +168,7 @@
 
             <button
               v-else
+              role="command"
               @click="muteAudio"
               class="text-secondary btn btn-ghost hover:bg-transparent px-0"
             >
@@ -221,6 +226,7 @@
           <button
             v-if="muted === false"
             @click="muteAudio"
+            role="command"
             class="btn btn-ghost hover:bg-transparent px-0"
           >
             <svg
@@ -242,6 +248,7 @@
           <button
             v-else
             @click="muteAudio"
+            role="command"
             class="text-secondary btn btn-ghost hover:bg-transparent px-0"
           >
             <svg

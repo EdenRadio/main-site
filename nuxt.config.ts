@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   buildModules: ['@nuxtjs/tailwindcss'],
     modules: [
+      '@nuxt/image-edge',
     // Simple usage
     '@nuxtjs/robots',
     // With options
