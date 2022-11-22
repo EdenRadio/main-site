@@ -6,6 +6,6 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     // With options
     ['@nuxtjs/robots', { /* module options */ }],
-      ['@funken-studio/sitemap-nuxt-3', { generateOnBuild: true }],
+      ['@funken-studio/sitemap-nuxt-3', { generateOnBuild: true, hostname: 'https://alpha.edenpfthewest.com' }],
   ]
 })
