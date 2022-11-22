@@ -6,8 +6,7 @@
       >
         {{ info.station.name }}
       </h1>
-      <nuxt-picture
-        format="webp"
+      <nuxt-img
         src="/Eden-logo.png"
         alt="Eden of the west logo"
         class="ml-10 h-10 my-14 md:hidden lg:hidden"
