@@ -123,6 +123,7 @@ const { data: info, refresh } = await useFetch(
 useHead({
   title: info.value.station.name,
   meta: [{ name: "description", content: info.value.station.description }],
+  link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
 });
 
 let np = info.value.now_playing;
