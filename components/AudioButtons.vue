@@ -4,7 +4,8 @@
       <!-- ANCHOR Playlist Button -->
       <a :href="station.playlist_pls_url">
         <button
-          role="command"
+          role="button"
+          aria-label="Playlist download button"
           class="btn btn-ghost font-light px-0 mr-3 text-white normal-case flex-col hover:bg-transparent lg:hidden"
         >
           <svg
@@ -92,7 +93,8 @@
 
         <transition name="fade" mode="out-in">
           <button
-            role="command"
+            role="button"
+            aria-label="Play button"
             v-if="playing === false"
             @click="playAudio"
             class="btn btn-ghost hover:bg-transparent px-0"
@@ -121,7 +123,8 @@
           <!-- ANCHOR Pause button -->
           <button
             v-else
-            role="command"
+            role="button"
+            aria-label="Pause button"
             class="text-secondary btn btn-ghost hover:bg-transparent px-0"
             @click="playAudio"
           >
@@ -146,7 +149,8 @@
           <transition name="fade" mode="out-in">
             <button
               v-if="muted === false"
-              role="command"
+              role="button"
+              aria-label="Mute Button"
               @click="muteAudio"
               class="btn btn-ghost hover:bg-transparent px-0"
             >
@@ -168,8 +172,9 @@
 
             <button
               v-else
-              role="command"
+              role="button"
               @click="muteAudio"
+              aria-label="Unmute button"
               class="text-secondary btn btn-ghost hover:bg-transparent px-0"
             >
               <svg
@@ -226,7 +231,8 @@
           <button
             v-if="muted === false"
             @click="muteAudio"
-            role="command"
+            role="button"
+            aria-label="Mute Button"
             class="btn btn-ghost hover:bg-transparent px-0"
           >
             <svg
@@ -248,7 +254,8 @@
           <button
             v-else
             @click="muteAudio"
-            role="command"
+            role="button"
+            aria-label="Unmute Button"
             class="text-secondary btn btn-ghost hover:bg-transparent px-0"
           >
             <svg

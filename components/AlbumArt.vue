@@ -2,7 +2,8 @@
   <div>
     <transition name="fade" mode="out-in" appear>
       <nuxt-img
-        class="w-80 lg:h-96 lg:w-96 m-auto rounded"
+        preset="albumArt"
+        class="m-auto rounded"
         :src="now_playing.song.art"
         :alt="now_playing.song.album + ' album art'"
         srcset=""
