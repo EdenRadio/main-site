@@ -1,7 +1,7 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  buildModules: ["@nuxtjs/tailwindcss"],
   modules: [
+    "@nuxtjs/tailwindcss",
     "@nuxt/image-edge",
     // Simple usage
     "@nuxtjs/robots",
@@ -17,15 +17,6 @@ export default defineNuxtConfig({
       { generateOnBuild: true, hostname: "https://alpha.edenofthewest.com" },
     ],
   ],
-  sitemap: {
-    hostname: "https://alpha.edenofthewest.com",
-    cacheTime: 1,
-    defaults: {
-      changefreq: "daily",
-      priority: 1,
-      lastmod: new Date().toISOString(),
-    },
-  },
   image: {
     screens: {
       xs: 320,
@@ -40,6 +31,6 @@ export default defineNuxtConfig({
       albumArt: { modifiers: { format: "webp", width: 400, height: 400 } },
       general: { modifiers: { format: "webp" } },
     },
-    domains: ["edenofthewest.com", "localhost", "alpha.edenofthewest.com"],
+    domains: ["edenofthewest.com", "localhost", "*.edenofthewest.com", "ondigitalocean.app", "stingray-app-cllmu.ondigitalocean.app"],
   },
 });

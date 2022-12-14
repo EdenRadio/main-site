@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen min-h-screen space-y-even">
+  <div class="w-screen h-full py-auto my-auto space-y-even">
     <div class="flex flex-row lg:my-16">
       <h1
         class="hidden md:flex lg:flex lg:my5 md:mx-auto mx-5 text-4xl font-bold text-white text-left"
