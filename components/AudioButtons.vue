@@ -220,7 +220,7 @@
           max="100"
           value="40"
           class="range range-info range-xs hidden lg:flex my-4 w-full"
-          @click="setVolume"
+          @input="setVolume"
         />
       </div>
     </div>
