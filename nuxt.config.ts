@@ -31,6 +31,6 @@ export default defineNuxtConfig({
       albumArt: { modifiers: { format: "webp", width: 400, height: 400 } },
       general: { modifiers: { format: "webp" } },
     },
-    domains: ["edenofthewest.com", "localhost", "*.edenofthewest.com", "ondigitalocean.app", "*.ondigitalocean.app"],
+    domains: ["edenofthewest.com", "localhost", "*.edenofthewest.com", "ondigitalocean.app", "stingray-app-cllmu.ondigitalocean.app"],
   },
 });
