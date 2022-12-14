@@ -40,6 +40,6 @@ export default defineNuxtConfig({
       albumArt: { modifiers: { format: "webp", width: 400, height: 400 } },
       general: { modifiers: { format: "webp" } },
     },
-    domains: ["edenofthewest.com"],
+    domains: ["edenofthewest.com", "localhost", "alpha.edenofthewest.com"],
   },
 });
