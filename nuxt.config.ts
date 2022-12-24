@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     ],
     [
       "@funken-studio/sitemap-nuxt-3",
-      { generateOnBuild: true, hostname: "https://alpha.edenofthewest.com" },
+      { generateOnBuild: true, hostname: "https://edenofthewest.com" },
     ],
   ],
   image: {
@@ -31,6 +31,6 @@ export default defineNuxtConfig({
       albumArt: { modifiers: { format: "webp", width: 400, height: 400 } },
       general: { modifiers: { format: "webp" } },
     },
-    domains: ["edenofthewest.com", "*.edenofthewest.com", "localhost"],
+    domains: ["edenofthewest.com", "*.edenofthewest.com", "localhost", 'radio.edenofthewest.com'],
   },
 });
