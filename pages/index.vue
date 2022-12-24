@@ -117,7 +117,7 @@ definePageMeta({
 });
 
 const { data: info, refresh } = await useFetch(
-  "https://edenofthewest.com/api/nowplaying/1",
+  "https://radio.edenofthewest.com/api/nowplaying/1",
   { pick: ["station", "now_playing", "song_history"] }
 );
 
@@ -131,7 +131,7 @@ useHead({
   link: [
     {
       rel: "canonical",
-      href: "https://alpha.edenofthewest.com",
+      href: "https://edenofthewest.com",
     },
   ],
 });
