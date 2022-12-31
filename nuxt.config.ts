@@ -31,6 +31,6 @@ export default defineNuxtConfig({
       albumArt: { modifiers: { format: "webp", width: 400, height: 400 } },
       general: { modifiers: { format: "webp" } },
     },
-    domains: ["edenofthewest.com", "*.edenofthewest.com", "localhost", 'radio.edenofthewest.com', 'lastfm.freetls.fastly.net'],
+    domains: ["edenofthewest.com"],
   },
 });
